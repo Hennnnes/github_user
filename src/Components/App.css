@@ -34,8 +34,3 @@ input[type="submit"] {
   font-size: 3em;
   cursor: pointer;
 }
-
-.error {
-  color: red;
-  font-size: 3em;
-}

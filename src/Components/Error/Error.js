@@ -1,7 +1,6 @@
 import React from 'react';
 
-//import header from './Header/Header';
-// import main from './Main/Main';
+import './Error.css';
 
 const Error = (props) => {
   return (

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-//import header from './Header/Header';
-// import main from './Main/Main';
+
 import Error from './Error/Error';
 import List from './List/List';
 
@@ -41,6 +40,8 @@ class App extends Component {
         this.setError('Oops, an error occured.');
         return;
       }
+
+      this.setError('');
       return response.json();
     })
     .then(json => {
@@ -63,7 +64,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-            <form action="./" onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <label htmlFor="user">Search for Github User</label>
 
               <input type="text"
@@ -82,7 +83,7 @@ class App extends Component {
           <Error error={this.state.error} />
 
           <List repos={this.state.repos} />
-          
+
         </main>
       </div>
     );
