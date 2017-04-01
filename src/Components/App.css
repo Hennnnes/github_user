@@ -1,9 +1,12 @@
-form {
-  padding: 10px;
-  text-align: center;
+.App {
   width: 500px;
   max-width: 100%;
   margin: 0 auto;
+}
+
+form {
+  padding: 10px;
+  text-align: center;
 }
 
 label {
@@ -14,7 +17,8 @@ label {
 
 input {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  width: 500px;
   margin: 0 auto 10px auto;
   padding: 5px 10px;
   outline: none;
@@ -23,9 +27,15 @@ input {
 
 input[type="submit"] {
   outline: none;
+  width: 500px;
   border: 1px solid black;
   text-transform: uppercase;
   background-color: white;
   font-size: 3em;
   cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 3em;
 }

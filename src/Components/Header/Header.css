@@ -1,0 +1,26 @@
+import React, { Component } from 'react';
+
+/*import './Header.css';*/
+
+class Header extends React.Component {
+  render() {
+    return (
+      <div>
+        <header>
+            <form action="./" method="get">
+              <label htmlFor="user">Search for Github User</label>
+
+              <input type="text"
+                      id="user"
+                      ref="{(input) => this.textInput = input}"
+                      />
+
+                    <input type="submit" value="Search" />
+            </form>
+        </header>
+        </div>
+    );
+  }
+}
+
+export default Header;
