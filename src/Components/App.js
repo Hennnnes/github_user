@@ -7,7 +7,7 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {value: '', error: '', repos: []};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,9 +35,16 @@ class App extends Component {
       return response.json();
     })
     .then(json => {
+      const repos = [];
+
+      // console.log( json);
+      for (let i = 0; i < json.length; i++) {
+        repos.push(json[i].svn_url);
+      }
+
       this.setState({
         value: this.state.value,
-        data: json
+        repos: repos
       });
     })
   }
@@ -64,6 +71,13 @@ class App extends Component {
           <h2>{this.state.value} Repositories:</h2>
 
           <p className="error">{this.state.error}</p>
+
+          <ul>
+            {this.state.repos.map(function(repo){
+              return <li key={repo}><a href={repo}>{repo}</a></li>;
+            })}
+          </ul>
+
 
         </main>
       </div>
