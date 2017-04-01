@@ -3,11 +3,18 @@ import React, { Component } from 'react';
 import './App.css';
 //import header from './Header/Header';
 // import main from './Main/Main';
+import Error from './Error/Error';
+import List from './List/List';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: '', error: '', repos: []};
+
+    this.state = {
+      value: '',
+      error: '',
+      repos: []
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,23 +30,26 @@ class App extends Component {
     event.preventDefault();
   }
 
+  setError(error) {
+    this.setState({error: error});
+  }
+
   getJson(url) {
     fetch(url)
     .then(response => {
       if (response.status !== 200) {
-        this.setState({error: 'Oops, an error occured!'})
+        this.setError('Oops, an error occured.');
         return;
       }
-
-      this.setState({error: ''})
       return response.json();
     })
     .then(json => {
       const repos = [];
 
-      // console.log( json);
-      for (let i = 0; i < json.length; i++) {
-        repos.push(json[i].svn_url);
+      if (json) {
+        for (let i = 0; i < json.length; i++) {
+          repos.push(json[i].svn_url);
+        }
       }
 
       this.setState({
@@ -67,18 +77,12 @@ class App extends Component {
         </header>
 
         <main>
-          {/*  only show if repositories */}
           <h2>{this.state.value} Repositories:</h2>
 
-          <p className="error">{this.state.error}</p>
+          <Error error={this.state.error} />
 
-          <ul>
-            {this.state.repos.map(function(repo){
-              return <li key={repo}><a href={repo}>{repo}</a></li>;
-            })}
-          </ul>
-
-
+          <List repos={this.state.repos} />
+          
         </main>
       </div>
     );
