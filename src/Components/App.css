@@ -1,0 +1,31 @@
+form {
+  padding: 10px;
+  text-align: center;
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin: 0 0 10px 0;
+  width: 100%;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin: 0 auto 10px auto;
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid black;
+}
+
+input[type="submit"] {
+  outline: none;
+  border: 1px solid black;
+  text-transform: uppercase;
+  background-color: white;
+  font-size: 3em;
+  cursor: pointer;
+}
