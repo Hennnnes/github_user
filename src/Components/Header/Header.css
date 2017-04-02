@@ -1,0 +1,34 @@
+form {
+  padding: 10px 0;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 0 0 10px 0;
+  width: 100%;
+  font-size: 3em;
+}
+
+input {
+  display: block;
+  max-width: 100%;
+  width: 500px;
+  margin: 0 auto 10px auto;
+  padding: 5px 10px;
+  outline: none;
+  border: 2px solid black;
+  background-color: white;
+  font-size: 2em;
+  box-sizing: border-box;
+}
+
+input[type="text"] {
+  padding: 5px 15px;
+}
+
+input[type="submit"] {
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+}

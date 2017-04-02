@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './List.css';
+
 const List = (props) => {
   return (
-    <ul>
+    <ul className="results">
       {props.repos.map((repo, index) =>
         <li key={repo}><a href={repo}>{repo}</a></li>
       )}
@@ -11,5 +13,8 @@ const List = (props) => {
   )
 }
 
+List.propTypes = {
+  repo: React.PropTypes.string
+};
 
 export default List;

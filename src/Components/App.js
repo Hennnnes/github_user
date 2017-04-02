@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-// import Header from './Header/Header';
+import Header from './Header/Header';
 import Error from './Error/Error';
 import List from './List/List';
 
@@ -42,11 +42,11 @@ class App extends Component {
       this.setState({ error: '' });
       return response.json();
     })
-    .then(json => {
+    .then(result => {
       const repos = [];
 
-      for (let i = 0; i < json.length; i++) {
-        repos.push(json[i].svn_url);
+      for (var i = 0; i < result.length; i++) {
+          repos.push(result[i].svn_url);
       }
 
       this.setState({ repos });
@@ -62,20 +62,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-            <form onSubmit={this.handleSubmit}>
-              <label htmlFor="user">Search for Github User</label>
 
-              <input type="text"
-                      id="user"
-                      value={this.state.value}
-                      onChange={this.handleInputChange}
-              />
-
-              <input type="submit" value="Submit" />
-            </form>
-        </header>
-
+        <Header handleInputChange={ this.handleInputChange } handleSubmit={ this.handleSubmit }  value={ this.state.value }/>
 
         <main>
           <h2>{this.state.value} Repositories:</h2>
